@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>crossmultip.ly - proportionally resize anything</title>
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
+	
+	<style type="text/css" media="screen">
+		body {
+			font-size: 62.5%;
+			background-color: #fafafa;
+			color: #777;
+			font-family: 'Droid Sans', arial, serif;
+		}
+		
+		#container
+		{
+			width: 600px;
+			margin: 10px auto;
+		}
+		
+		h1 {
+			text-align: center;
+			margin: 30px;
+			font-size: 3.5em;
+			margin: 40px 0 0 0;
+		}
+		
+		#intro {
+			text-align: center;
+			margin: 8px 0 30px 0;
+			font-size: 1.2em;
+		}
+		
+		#old_dimensions {
+			float: left;
+			width: 200px;
+			text-align: center;
+		}
+		
+		#equals {
+			float: left;
+			width: 180px;
+			text-align: center;
+			font-size: 10.0em;
+			line-height: 120px;
+		}
+		
+		#new_dimensions {
+			float: left;
+			width: 200px;
+			text-align: center;
+		}
+		
+		.dimensions input {
+			display: block;
+			margin: 0;
+			text-align: center;
+			height: 50px;
+			width: 100px;
+			color: #777;
+			font-size: 3.0em;
+			border-width: 0;
+			background-color: #fafafa;
+		}
+		
+		::-webkit-input-placeholder {
+			text-align: center;
+		}
+		
+		:-moz-placeholder {
+			text-align: center;
+		}
+		
+		.dimensions input:focus {
+			background-color: #fff;
+			outline: none;
+		}
+		
+		.dimensions .height
+		{
+			padding: 0 0 10px 0;
+			border-bottom: 3px solid #777;
+		}
+		
+		.dimensions .width
+		{
+			padding: 10px 0 0 0;
+		}
+		
+		#old_dimensions input {
+			margin: 0 0 0 auto; 
+		}
+		
+		#new_dimensions input {
+			margin: 0 auto 0 0;
+		}
+		
+		#footer
+		{
+			width: 600px;
+			margin: 10px auto;
+			text-align: center;
+			margin: 8px 0 30px 0;
+			font-size: 1.2em;
+			position: fixed;
+			bottom: 0;
+		}
+		
+	</style>
+	
+	<script src="https://www.google.com/jsapi?key=ABQIAAAAdMKsGR0fTiiJv0cB854evxS38dyrhHwgH10cyXQw2xj_qnhTUhRc4tt0lTDVSyYsoksSk5KvO9v5Qg" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8">
+		//<![CDATA[
+		google.load("jquery", "1.6.0");
+		//]]>
+	</script>
+	
+	
+	<script type="text/javascript" charset="utf-8">
+	
+		jQuery(document).ready(function () {
+			
+			var dimension = '';
+			
+			jQuery('.dimensions input').change(function () {
+				CrossMultiply.dimensions[jQuery(this).attr('id')].val = jQuery(this).val();
+				CrossMultiply.recalculate();
+				if (CrossMultiply.dimensionCalculated !== false) {
+					jQuery('#' + CrossMultiply.dimensionCalculated).val(CrossMultiply.dimensions[CrossMultiply.dimensionCalculated].val).effect("highlight", {}, 1000);
+					jQuery('#equals').html(CrossMultiply.isRounded ? '&#8776;' : '=');
+				};
+			});
+
+			jQuery('input').placeholder();
+
+			jQuery(window).load(function () {
+				jQuery('#a').focus();
+			});
+			
+		});
+		
+	</script>
+	
+</head>
+
+<body>
+	
+	<div id="container">
+		
+		<h1>crossmultip.ly</h1>
+
+		<div id="intro">
+			enter three integers and leave one blank.
+		</div>
+
+		<form id="cross_multiplication" action="index.html" method="get" accept-charset="utf-8">
+
+			<div id="old_dimensions" class="dimensions">
+				<input type="text" name="a" value="" placeholder="a" id="a" class="height example">
+				<input type="text" name="b" value="" placeholder="b" id="b" class="width example">
+			</div>
+
+			<div id="equals">
+				=
+			</div>
+
+			<div id="new_dimensions" class="dimensions">
+				<input type="text" name="c" value="" placeholder="c" id="c" class="height example">
+				<input type="text" name="d" value="" placeholder="d"id="d" class="width example">
+			</div>
+			
+		</form>
+		
+	</div>
+
+
+	<script src="jquery-ui-1.8.12.custom.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.placeholder.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="underscore-min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="crossmultiply.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-6520337-5']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	
+</body>
+</html>
