@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>crossmultiply - proportionally resize anything</title>
+	<title>Simple Cross-Multiplication Calculator</title>
 
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold' rel='stylesheet' type='text/css'>
-	
+
 	<style type="text/css" media="screen">
 		body {
 			font-size: 62.5%;
@@ -13,32 +13,32 @@
 			color: #777;
 			font-family: 'Droid Sans', arial, serif;
 		}
-		
+
 		#container
 		{
 			width: 600px;
 			margin: 10px auto;
 		}
-		
+
 		h1 {
 			text-align: center;
 			margin: 30px;
 			font-size: 3.5em;
 			margin: 40px 0 0 0;
 		}
-		
+
 		#intro {
 			text-align: center;
 			margin: 8px 0 30px 0;
 			font-size: 1.2em;
 		}
-		
+
 		#old_dimensions {
 			float: left;
 			width: 200px;
 			text-align: center;
 		}
-		
+
 		#equals {
 			float: left;
 			width: 180px;
@@ -46,13 +46,13 @@
 			font-size: 10.0em;
 			line-height: 120px;
 		}
-		
+
 		#new_dimensions {
 			float: left;
 			width: 200px;
 			text-align: center;
 		}
-		
+
 		.dimensions input {
 			display: block;
 			margin: 0;
@@ -64,39 +64,39 @@
 			border-width: 0;
 			background-color: #fafafa;
 		}
-		
+
 		::-webkit-input-placeholder {
 			text-align: center;
 		}
-		
+
 		:-moz-placeholder {
 			text-align: center;
 		}
-		
+
 		.dimensions input:focus {
 			background-color: #fff;
 			outline: none;
 		}
-		
+
 		.dimensions .height
 		{
 			padding: 0 0 10px 0;
 			border-bottom: 3px solid #777;
 		}
-		
+
 		.dimensions .width
 		{
 			padding: 10px 0 0 0;
 		}
-		
+
 		#old_dimensions input {
-			margin: 0 0 0 auto; 
+			margin: 0 0 0 auto;
 		}
-		
+
 		#new_dimensions input {
 			margin: 0 auto 0 0;
 		}
-		
+
 		#footer
 		{
 			width: 600px;
@@ -107,23 +107,23 @@
 			position: fixed;
 			bottom: 0;
 		}
-		
+
 	</style>
-	
+
 	<script src="https://www.google.com/jsapi?key=ABQIAAAAdMKsGR0fTiiJv0cB854evxS38dyrhHwgH10cyXQw2xj_qnhTUhRc4tt0lTDVSyYsoksSk5KvO9v5Qg" type="text/javascript"></script>
 	<script type="text/javascript" charset="utf-8">
 		//<![CDATA[
 		google.load("jquery", "1.6.0");
 		//]]>
 	</script>
-	
-	
+
+
 	<script type="text/javascript" charset="utf-8">
-	
+
 		jQuery(document).ready(function () {
-			
+
 			var dimension = '';
-			
+
 			jQuery('.dimensions input').change(function () {
 				CrossMultiply.dimensions[jQuery(this).attr('id')].val = jQuery(this).val();
 				CrossMultiply.recalculate();
@@ -138,17 +138,17 @@
 			jQuery(window).load(function () {
 				jQuery('#a').focus();
 			});
-			
+
 		});
-		
+
 	</script>
-	
+
 </head>
 
 <body>
-	
+
 	<div id="container">
-		
+
 		<h1>crossmultiply</h1>
 
 		<div id="intro">
@@ -170,9 +170,9 @@
 				<input type="text" name="c" value="" placeholder="c" id="c" class="height example">
 				<input type="text" name="d" value="" placeholder="d"id="d" class="width example">
 			</div>
-			
+
 		</form>
-		
+
 	</div>
 
 
@@ -181,7 +181,7 @@
 
 	<script src="underscore-min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="crossmultiply.js" type="text/javascript" charset="utf-8"></script>
-	
+
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
@@ -195,6 +195,6 @@
 	  })();
 
 	</script>
-	
+
 </body>
 </html>
