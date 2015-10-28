@@ -16,7 +16,8 @@
 
 		#container
 		{
-			width: 600px;
+			max-width: 580px;
+			width: 100%;
 			margin: 10px auto;
 		}
 
@@ -35,7 +36,6 @@
 
 		#old_dimensions {
 			float: left;
-			width: 200px;
 			text-align: center;
 		}
 
@@ -49,8 +49,11 @@
 
 		#new_dimensions {
 			float: left;
-			width: 200px;
 			text-align: center;
+		}
+
+		.dimensions {
+			width: 200px;
 		}
 
 		.dimensions input {
@@ -95,6 +98,20 @@
 
 		#new_dimensions input {
 			margin: 0 auto 0 0;
+		}
+
+		@media (max-width: 600px) {
+			#container {
+				max-width: 400px;
+			}
+
+			#equals {
+				width: 100px;
+			}
+
+			.dimensions {
+				width: 140px;
+			}
 		}
 
 	</style>
